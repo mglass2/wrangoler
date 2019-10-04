@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# Stop on first error.
+set -e
+
+dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+
+docker build \
+  --tag=wrangoler:latest \
+  --file="$dir"/../build/package/Dockerfile \
+  .
