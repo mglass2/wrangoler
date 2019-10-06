@@ -9,5 +9,5 @@ dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 TAG=${TAG:-latest}
 
 docker run --rm --interactive --tty \
-  -v "$dir"/../../app:/app \
+  -v "$dir"/../app:/app \
   wrangoler:"$TAG" "$@"
