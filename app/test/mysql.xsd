@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:complexType name="mysqldump">
+        <xs:sequence>
+            <xs:element name="database" type="database" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="database">
+        <xs:sequence>
+            <xs:element name="table_structure" type="table_structure" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="name" type="xs:string"/>
+    </xs:complexType>
+
+    <xs:complexType name="table_structure">
+        <xs:sequence>
+            <xs:element name="field" type="field" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="key" type="key" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="options" type="options"/>
+        </xs:sequence>
+        <xs:attribute name="name" type="xs:string"/>
+    </xs:complexType>
+
+    <xs:complexType name="field">
+        <xs:attribute name="field" type="xs:string"/>
+        <xs:attribute name="type" type="xs:string"/>
+        <xs:attribute name="null" type="xs:string"/>
+        <xs:attribute name="key" type="xs:string"/>
+        <xs:attribute name="default" type="xs:string"/>
+        <xs:attribute name="extra" type="xs:string"/>
+        <xs:attribute name="comment" type="xs:string"/>
+    </xs:complexType>
+
+    <xs:complexType name="key">
+        <xs:attribute name="table" type="xs:string"/>
+        <xs:attribute name="non_unique" type="xs:int"/>
+        <xs:attribute name="key_name" type="xs:string"/>
+        <xs:attribute name="seq_in_index" type="xs:int"/>
+        <xs:attribute name="column_name" type="xs:string"/>
+        <xs:attribute name="collation" type="xs:string"/>
+        <xs:attribute name="null" type="xs:string"/>
+        <xs:attribute name="index_type" type="xs:string"/>
+        <xs:attribute name="comment" type="xs:string"/>
+    </xs:complexType>
+
+
+    <xs:complexType name="options">
+        <xs:attribute name="name" type="xs:string"/>
+        <xs:attribute name="engine" type="xs:string"/>
+        <xs:attribute name="version" type="xs:string"/>
+        <xs:attribute name="row_format" type="xs:string"/>
+        <xs:attribute name="rows" type="xs:string"/>
+        <xs:attribute name="avg_row_length" type="xs:int"/>
+        <xs:attribute name="data_length" type="xs:long"/>
+        <xs:attribute name="max_data_length" type="xs:long"/>
+        <xs:attribute name="index_length" type="xs:long"/>
+        <xs:attribute name="data_free" type="xs:int"/>
+        <xs:attribute name="create_time" type="xs:date"/>
+        <xs:attribute name="update_time" type="xs:date"/>
+        <xs:attribute name="check_time" type="xs:date"/>
+        <xs:attribute name="collation" type="xs:string"/>
+        <xs:attribute name="checksum" type="xs:string"/>
+        <xs:attribute name="create_options" type="xs:string"/>
+        <xs:attribute name="comment" type="xs:string"/>
+    </xs:complexType>
+
+    <xs:element name="mysqldump" type="mysqldump"/>
+
+</xs:schema>

@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+
+<mysqldump xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="mysql.xsd">
+    <database name="test">
+
+        <table_structure name="userTitleMap">
+            <field field="companyId" type="int(10) unsigned" null="NO" key="PRI" default="NULL" extra="" />
+            <field field="securityGroupId" type="int(10) unsigned" null="NO" key="" default="NULL" extra="" />
+            <field field="title" type="varchar(128)" null="NO" key="PRI" default="NULL" extra="" />
+            
+            <options name="userTitleMap" engine="InnoDB" collation="utf8_general_ci" comment="" />
+        </table_structure>
+
+        <table_structure name="vendor">
+            <field field="vendorId" type="int(10) unsigned" null="NO" key="PRI" default="NULL" extra="auto_increment" />
+            <field field="dateCreated" type="datetime" null="NO" key="" default="CURRENT_TIMESTAMP" extra="" />
+            <field field="dateModified" type="datetime" null="NO" key="" default="CURRENT_TIMESTAMP" extra="" />
+            <field field="userCreated" type="int(10) unsigned" null="NO" key="" default="0" extra="" />
+            <field field="userModified" type="int(10) unsigned" null="NO" key="" default="0" extra="" />
+            <field field="vendorName" type="varchar(64)" null="NO" key="" default="" extra="" />
+
+            <options name="vendor" engine="InnoDB" collation="utf8_general_ci" comment="" />
+        </table_structure>
+
+        <table_structure name="vendorEmployee">
+            <field field="vendorEmployeeId" type="int(10) unsigned" null="NO" key="PRI" default="NULL" extra="auto_increment" />
+            <field field="dateCreated" type="datetime" null="NO" key="" default="CURRENT_TIMESTAMP" extra="" />
+            <field field="dateModified" type="datetime" null="NO" key="" default="CURRENT_TIMESTAMP" extra="" />
+            <field field="userCreated" type="int(10) unsigned" null="NO" key="" default="0" extra="" />
+            <field field="userModified" type="int(10) unsigned" null="NO" key="" default="0" extra="" />
+            <field field="firstName" type="varchar(32)" null="NO" key="" default="" extra="" />
+            <field field="middleName" type="varchar(32)" null="NO" key="" default="" extra="" />
+            <field field="lastName" type="varchar(32)" null="NO" key="" default="" extra="" />
+            <field field="emailAddress" type="varchar(128)" null="NO" key="UNI" default="" extra="" />
+
+            <options name="vendorEmployee" engine="InnoDB" collation="utf8_general_ci" comment="" />
+        </table_structure>
+
+        <table_structure name="vendorEmployeeRoleMap">
+            <field field="vendorEmployeeRoleMapId" type="int(10) unsigned" null="NO" key="PRI" default="NULL" extra="auto_increment" />
+            <field field="dateCreated" type="datetime" null="NO" key="" default="CURRENT_TIMESTAMP" extra="" />
+            <field field="dateModified" type="datetime" null="NO" key="" default="CURRENT_TIMESTAMP" extra="on update CURRENT_TIMESTAMP" />
+            <field field="userCreated" type="int(10) unsigned" null="NO" key="" default="0" extra="" />
+            <field field="userModified" type="int(10) unsigned" null="NO" key="" default="0" extra="" />
+            <field field="vendorRoleId" type="int(10) unsigned" null="NO" key="MUL" default="NULL" extra="" />
+            <field field="vendorEmployeeId" type="int(10) unsigned" null="NO" key="" default="NULL" extra="" />
+            <field field="financialYearId" type="int(10) unsigned" null="NO" key="" default="NULL" extra="" />
+            <field field="companyId" type="int(10) unsigned" null="NO" key="" default="NULL" extra="" />
+            <field field="departmentId" type="int(10) unsigned" null="NO" key="" default="NULL" extra="" />
+
+            <options name="vendorEmployeeRoleMap" engine="InnoDB" collation="utf8_general_ci" comment="" />
+        </table_structure>
+
+        <table_structure name="vendorRole">
+            <field field="vendorRoleId" type="int(10) unsigned" null="NO" key="PRI" default="NULL" extra="auto_increment" />
+            <field field="dateCreated" type="datetime" null="NO" key="" default="CURRENT_TIMESTAMP" extra="" />
+            <field field="dateModified" type="datetime" null="NO" key="" default="CURRENT_TIMESTAMP" extra="" />
+            <field field="userCreated" type="int(10) unsigned" null="NO" key="" default="0" extra="" />
+            <field field="userModified" type="int(10) unsigned" null="NO" key="" default="0" extra="" />
+            <field field="vendorId" type="int(10) unsigned" null="NO" key="" default="NULL" extra="" />
+            <field field="vendorRoleName" type="varchar(100)" null="NO" key="" default="NULL" extra="" />
+            <field field="description" type="varchar(1000)" null="NO" key="" default="" extra="" />
+            <field field="sortOrder" type="int(10) unsigned" null="NO" key="" default="0" extra="" />
+
+            <options name="vendorRole" engine="InnoDB" collation="utf8_general_ci" comment="" />
+        </table_structure>
+
+    </database>
+</mysqldump>
