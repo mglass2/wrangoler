@@ -39,7 +39,7 @@ done
 ###
 
 if [ "$COMPILE" = "true" ] ; then
-  source ./cmd/compile
+  source ./scripts/compile
 fi
 
 ./main
