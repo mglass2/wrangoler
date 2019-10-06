@@ -3,6 +3,7 @@
 # Stop on first error.
 set -e
 
+# current directory
 dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 
 TAG=${TAG:-latest}
@@ -11,4 +12,5 @@ docker run --rm --interactive --tty \
   -v "$dir"/../logs:/app/logs \
   -v "$dir"/../output:/app/output \
   -v "$dir"/../configs:/app/configs \
+  -v "$dir"/../main.go:/app/main.go \
   wrangoler:"$TAG" "$@"

@@ -26,9 +26,10 @@ COPY . .
 RUN go get -u github.com/spf13/cobra/cobra
 
 # Build the Go app
-RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o main ./
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 && \
+    ./cmd/compile
 
 # Declare volumes to mount
-VOLUME ["${LOG_DIR}","${OUTPUT_DIR}","${CONFIG_DIR}"]
+VOLUME ["${LOG_DIR}","${OUTPUT_DIR}","${CONFIG_DIR}", "/app/main.go"]
 
-CMD ["./main"]
+ENTRYPOINT ["./init"]
