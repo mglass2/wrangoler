@@ -3,7 +3,5 @@
 # Stop on first error.
 set -e
 
-dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
-
 # Compile the Go app
 go build -o main ./

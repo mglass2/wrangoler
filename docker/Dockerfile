@@ -28,4 +28,4 @@ RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64
 VOLUME ["${APP_DIR}"]
 
 # init with compile
-ENTRYPOINT ["/app/scripts/init"]
+#ENTRYPOINT ["/app/scripts/init"]

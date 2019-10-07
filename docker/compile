@@ -8,9 +8,6 @@ dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 
 TAG=${TAG:-latest}
 
-# shellcheck disable=SC1090
-source "$dir"/compile
-
 docker run --rm --interactive --tty \
   -v "$dir"/../app:/app \
-  wrangoler:"$TAG" "$@"
+  wrangoler:"$TAG" ./scripts/compile
