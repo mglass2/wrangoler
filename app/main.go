@@ -8,7 +8,9 @@ import (
 )
 
 func main() {
+
   var rootCmd = &cobra.Command{Use: "app"}
   rootCmd.AddCommand(command.Echo)
+  rootCmd.AddCommand(command.ProvideGenerateDatabaseSchemaCommand().MakeCobraCommand())
   rootCmd.Execute()
 }
