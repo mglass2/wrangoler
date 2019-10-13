@@ -3,5 +3,8 @@
 # Stop on first error.
 set -e
 
+# add
+export GOPATH=$GOPATH:/app
+
 # Compile the Go app
 go build -o main ./
